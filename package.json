@@ -1,0 +1,19 @@
+{
+  "name": "carlos-chaves-mb-test-project",
+  "version": "1.0.0",
+  "description": "Mercedes-Benz website tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cchaves21/carlos-chaves-mb-test-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cchaves21/carlos-chaves-mb-test-project/issues"
+  },
+  "homepage": "https://github.com/cchaves21/carlos-chaves-mb-test-project#readme"
+}
