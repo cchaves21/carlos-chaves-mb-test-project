@@ -1,6 +1,14 @@
 import { test, expect } from '@playwright/test';
+const fs = require('fs');
+const path = require('path');
+const { parse } = require('csv-parse/sync');
 
 const urlBase = 'https://www.mercedes-benz.co.uk/passengercars.html'
+
+const records = parse(fs.readFileSync(path.join(__dirname, '../input.csv')), {
+  columns: true,
+  skip_empty_lines: true
+});
 
 //Accessing the home url
 test.beforeEach(async ({ page }) => {
@@ -8,8 +16,8 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Validate model prices', () => {
-
-  test('Validate A Class models price are between £15,000 and £60,000', async ({ page }) => {
+  for (const record of records) {
+  test(`Validate ${record.model} models price are between £${record.lower_value} and £${record.higher_value}`, async ({ page }) => {
    
     //Path to get to the pricing page
     await expect(page).toHaveTitle('Mercedes-Benz Passenger Cars');
@@ -29,8 +37,9 @@ test.describe('Validate model prices', () => {
     for(let i = 0; i <= elemtsSize -1; i++){
       let fullText = await page.locator(".cc-motorization-header__info-box").nth(i).textContent();
       let price = await fullText.split("£")[1].replace(",", "");
-      await expect(parseInt(price)).toBeGreaterThan(15000);
-      await expect(parseInt(price)).toBeLessThan(60000);
+      await expect(parseInt(price)).toBeGreaterThan(parseInt(record.lower_value));
+      await expect(parseInt(price)).toBeLessThan(parseInt(record.higher_value));
     }
   });
+}
 });
