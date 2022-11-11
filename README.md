@@ -23,6 +23,5 @@ If the test fails, a folder will be created with prints of all steps on ./test-r
 ### Notes
 
 There are some improvements that I would make if I had more time such as:
-1. Remove the fixed price value and import it into a JSON file. So we can run the same test with different values
-2. Create a custom command to validate the price values removing it from the test script 
-3. Add implicit waits
+1. Create a custom command to validate the price values removing it from the test script 
+2. Add implicit waits
