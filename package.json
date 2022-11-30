@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Test challenge",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "testCase" : "npx playwright test"
+  },
   "keywords": [],
   "author": "Carlos Chaves",
   "license": "ISC",
