@@ -16,7 +16,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto(urlBase);
 });
 
-test.describe('Validate model car prices', () => {
+test.describe('Validate model car prices ', () => {
 
   for (const record of records) {
 
